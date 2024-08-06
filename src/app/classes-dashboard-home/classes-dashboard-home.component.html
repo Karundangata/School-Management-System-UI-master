@@ -1,0 +1,54 @@
+<div class="content">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title> Classes Dashboard Overview </mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div class="mat-headline-2">
+          {{ dataSource.data.length }}
+        </div>
+        <div class="mat-caption">Number Of Classes</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <button style="margin-top: 1rem" mat-button (click)="addClass()">
+    Add Class
+  </button>
+</div>
+
+<table style="margin-top: 1rem" mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="class_id">
+    <th mat-header-cell *matHeaderCellDef>Class Id</th>
+    <td mat-cell *matCellDef="let class">{{ class.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let class">{{ class.name }}</td>
+  </ng-container>
+  <ng-cotainer matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let class">{{ class.description }}</td>
+  </ng-cotainer>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let class">
+      <button mat-button (click)="edit_class(class)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button color="warn" (click)="delete_class(class)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 20, 50]"
+  (page)="onPageChange($event)"
+></mat-paginator>

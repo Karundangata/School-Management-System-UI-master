@@ -1,0 +1,39 @@
+<mat-toolbar style="position: sticky;top: 0;z-index: 5;">
+    <button mat-icon-button (click)="clickMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+        <mat-icon>school</mat-icon>
+    </button>
+    <span>Academy</span>
+
+    <div class="toolBarContents">
+        <button routerLink="/dashboard" mat-button routerLinkActive #dashboardLink="routerLinkActive"
+            [color]="dashboardLink.isActive?'primary':'undefined'">
+            <mat-icon>dashboard</mat-icon>
+            Dashboard
+        </button>
+        <button routerLink="/student-dashboard" routerLinkActive #studentLink="routerLinkActive"
+            [color]="studentLink.isActive?'primary':'undefined'" mat-button>
+            <mat-icon>group</mat-icon>
+            Students
+        </button>
+        <button mat-button routerLink="/teacher-dashboard" routerLinkActive #teacherLink="routerLinkActive"
+            [color]="teacherLink.isActive?'primary':'undefined'">
+            <mat-icon>
+                group
+            </mat-icon>
+            Teachers
+        </button>
+        <button mat-button routerLink="/classes-dashboard" routerLinkActive #classesLink="routerLinkActive"
+            [color]="classesLink.isActive?'primary':'undfined'">
+            <mat-icon>other_houses</mat-icon>
+            Classes</button>
+        <button mat-button routerLink="/enrollments-dashboard" routerLinkActive #enrollmentsLink="routerLinkActive"
+            [color]="enrollmentsLink.isActive?'primary':'undefined'">
+            <mat-icon>group</mat-icon>
+            Enrollments
+        </button>
+    </div>
+</mat-toolbar>

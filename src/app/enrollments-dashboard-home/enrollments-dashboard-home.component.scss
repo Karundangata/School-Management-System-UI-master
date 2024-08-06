@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.example-card {
+  width: 900px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.dashboard-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}

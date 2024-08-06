@@ -1,0 +1,95 @@
+<div class="content">
+  <div class="cards">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Students Dashboard Overview</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div class="mat-headline-2">
+            {{ dataSource.data.length }}
+          </div>
+          <div class="mat-caption">Total Number of Students</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="buttons">
+    <button mat-button (click)="addStudent()">
+      <mat-icon>add</mat-icon>Add Student
+    </button>
+  </div>
+</div>
+
+<table
+  style="margin-top: 1rem; margin-bottom: 1rem"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+>
+  <!-- student_id column -->
+  <ng-container matColumnDef="student_id">
+    <th mat-header-cell *matHeaderCellDef>Student Id</th>
+    <td mat-cell *matCellDef="let student">{{ student.id }}</td>
+  </ng-container>
+
+  <!-- First Name Column -->
+  <ng-container matColumnDef="first_name">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let student">{{ student.first_name }}</td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="last_name">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let student">{{ student.last_name }}</td>
+  </ng-container>
+
+  <!-- Date of Birth Column -->
+  <ng-container matColumnDef="date_of_birth">
+    <th mat-header-cell *matHeaderCellDef>Date of Birth</th>
+    <td mat-cell *matCellDef="let student">
+      {{ student.date_of_birth | date : "fullDate" }}
+    </td>
+  </ng-container>
+
+  <!-- Gender Column -->
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef>Gender</th>
+    <td mat-cell *matCellDef="let student">{{ student.gender }}</td>
+  </ng-container>
+
+  <!-- Address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>Address</th>
+    <td mat-cell *matCellDef="let student">{{ student.address }}</td>
+  </ng-container>
+
+  <!-- Phone Number Column -->
+  <ng-container matColumnDef="phone_number">
+    <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+    <td mat-cell *matCellDef="let student">{{ student.phone_number }}</td>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let student">
+      <button mat-button (click)="edit_student(student)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button color="warn" (click)="delete_student(student)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 20, 50]"
+  (page)="onPageChange($event)"
+></mat-paginator>

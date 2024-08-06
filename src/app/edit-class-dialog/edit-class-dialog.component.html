@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Edit Class</h1>
+<form [formGroup]="editClassForm" (ngSubmit)="edit_class()">
+  <mat-dialog-content>
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <input
+        matInput
+        placeholder="descriptipon"
+        formControlName="description"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close="">CANCEL</button>
+    <button mat-raised-button (click)="edit_class()" color="primary">
+      SUBMIT
+    </button>
+  </mat-dialog-actions>
+</form>

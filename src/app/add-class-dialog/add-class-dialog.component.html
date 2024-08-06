@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <mat-icon mat-dialog-close="" style="cursor: pointer;">close</mat-icon>
+</mat-toolbar>
+
+<h2 mat-dialog-title>Add Class</h2>
+
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close="">CLOSE</button>
+        <button mat-button type="submit" color="primary">SUBMIT</button>
+    </mat-dialog-actions>
+</form>

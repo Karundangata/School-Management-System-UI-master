@@ -1,0 +1,19 @@
+<app-toolbar></app-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" #sidenav class="sidenav">
+        <div class="sidenavContent">
+            <button mat-button routerLink="home" routerLinkActive #homeLink="routerLinkActive"
+                [color]="homeLink.isActive?'primary':'undefined'">Home</button>
+            <button mat-button routerLink="classes" routerLinkActive #classesLink="routerLinkActive"
+                [color]="classesLink.isActive?'primary':'undefined'">Classes</button>
+            <button mat-button routerLink="grades" routerLinkActive #gradesLink="routerLinkActive"
+                [color]="gradesLink.isActive?'primary':'undefined'">Grades</button>
+            <button mat-button routerLink="attendance" routerLinkActive #attendanceLink="routerLinkActive"
+                [color]="attendanceLink.isActive?'primary':'undefined'">Attendance</button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

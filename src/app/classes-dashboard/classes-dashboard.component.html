@@ -1,0 +1,13 @@
+<app-toolbar></app-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" #sidenav class="sidenav">
+        <div class="sidenavContent">
+            <button mat-button routerLink="home" routerLinkActive #homeLink="routerLinkActive"
+                [color]="homeLink.isActive?'primary':'undefined'">Home</button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

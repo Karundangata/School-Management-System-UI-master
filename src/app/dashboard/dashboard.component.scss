@@ -1,0 +1,45 @@
+.toolBarContents {
+  display: flex;
+  gap: 3rem;
+  margin-left: 8rem;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboard {
+  display: flex;
+  gap: 20rem;
+  margin-top: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.example-card {
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.summary {
+  margin-top: 1rem;
+}
+
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.summary-card {
+  width: 172px;
+  cursor: pointer;
+}

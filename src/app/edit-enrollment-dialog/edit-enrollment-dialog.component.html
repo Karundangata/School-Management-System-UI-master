@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Edit Enrollment</h1>
+<form [formGroup]="editEnrollmentForm" (ngSubmit)="edit_enrollment()">
+  <mat-dialog-content>
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="student_id" formControlName="student_id" />
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="class_id" formControlName="class_id" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close="">CANCEL</button>
+    <button mat-raised-button color="primary">SUBMIT</button>
+  </mat-dialog-actions>
+</form>

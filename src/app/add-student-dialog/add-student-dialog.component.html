@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Add Student</h2>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <mat-form-field style="width: 100%;">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="first_name">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="last_name">
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Date of birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date_of_birth">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Select Gender</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="address">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number" formControlName="phone_number">
+        </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close="">CANCEL</button>
+        <button mat-raised-button color="primary" type="submit">SUBMIT</button>
+    </mat-dialog-actions>
+</form>
